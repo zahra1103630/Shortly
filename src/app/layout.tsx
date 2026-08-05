@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-// font settings
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta-sans",
@@ -22,8 +21,9 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shortly - link shorter",
-  description: " short your link",
+  title: "Shortly - Link shorter",
+  description:
+    "Shorten, share and track your links with a tool that has actual personality.",
 };
 
 export default function RootLayout({
@@ -33,11 +33,11 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="fa"
-      dir="rtl"
+      lang="en"
+      dir="ltr"
       className={`${plusJakartaSans.variable} ${inter.variable} ${jetBrainsMono.variable}`}
     >
-      <body>{children}</body>
+      <body className="antialiased overflow-x-hidden">{children}</body>
     </html>
   );
 }
