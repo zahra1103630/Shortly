@@ -15,12 +15,14 @@ export default function DashboardSidebar({
   onCreateLink,
 }: DashboardSidebarProps) {
   return (
-    <aside className="w-72 bg-[#0b110f] text-white flex flex-col p-5 border-r border-[#202720]">
+    <aside className="w-72 bg-[var(--dashboard-sidebar)] text-white flex flex-col p-5 border-r border-[var(--dashboard-sidebar-border)]">
       {/* Logo */}
 
       <Link href="/" className="flex items-center gap-3">
-        <div className="w-9 h-9 rounded-full bg-[#8FE388] flex items-center justify-center">
-          <span className="font-bold text-[#0b110f]">S</span>
+        <div className="w-9 h-9 rounded-full bg-[var(--dashboard-green)] flex items-center justify-center">
+          <span className="font-bold text-[var(--dashboard-green-text)]">
+            S
+          </span>
         </div>
 
         <span className="font-bold text-xl">Shortly</span>
@@ -28,23 +30,26 @@ export default function DashboardSidebar({
 
       <Button
         onClick={onCreateLink}
-        className="mt-8  rounded-full h-11 bg-[#8FE388] text-[#0b110f] hover:bg-[#78cb74]"
+        className="mt-8 rounded-full h-11 bg-[var(--dashboard-green)] text-[var(--dashboard-green-text)] hover:bg-[var(--dashboard-green-hover)]"
       >
-        <Plus className="mr-2 h-4 w-2" />
+        <Plus className="mr-2 h-4 w-4" />
         New Link
       </Button>
 
-      <Separator className="my-7 bg-[#232923]" />
+      <Separator className="my-7 bg-[var(--dashboard-sidebar-border)]" />
 
       <nav className="space-y-2">
-        <Button variant="ghost" className="justify-start w-full text-[#8FE388]">
+        <Button
+          variant="ghost"
+          className="justify-start w-full text-[var(--dashboard-green)] hover:bg-[var(--dashboard-sidebar-hover)] hover:text-[var(--dashboard-green)]"
+        >
           <Link2 className="mr-2 h-4 w-4" />
           My Links
         </Button>
 
         <Button
           variant="ghost"
-          className="justify-start w-full text-gray-400 hover:text-white"
+          className="justify-start w-full text-gray-400 hover:text-white hover:bg-[var(--dashboard-sidebar-hover)]"
         >
           <BarChart3 className="mr-2 h-4 w-4" />
           Analytics
@@ -52,7 +57,7 @@ export default function DashboardSidebar({
 
         <Button
           variant="ghost"
-          className="justify-start w-full text-gray-400 hover:text-white"
+          className="justify-start w-full text-gray-400 hover:text-white hover:bg-[var(--dashboard-sidebar-hover)]"
         >
           <Globe className="mr-2 h-4 w-4" />
           Domains
@@ -60,7 +65,7 @@ export default function DashboardSidebar({
 
         <Button
           variant="ghost"
-          className="justify-start w-full text-gray-400 hover:text-white"
+          className="justify-start w-full text-gray-400 hover:text-white hover:bg-[var(--dashboard-sidebar-hover)]"
         >
           <Settings className="mr-2 h-4 w-4" />
           Settings
@@ -68,7 +73,7 @@ export default function DashboardSidebar({
       </nav>
 
       <div className="mt-auto">
-        <Separator className="mb-5 bg-[#232923]" />
+        <Separator className="mb-5 bg-[var(--dashboard-sidebar-border)]" />
 
         <div className="flex items-center gap-3">
           <Avatar>

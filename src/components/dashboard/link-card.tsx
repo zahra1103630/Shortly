@@ -23,40 +23,52 @@ export default function LinkCard({
   return (
     <div
       className="
-      bg-white
+      bg-[var(--dashboard-card)]
       rounded-2xl
       border
-      border-[#E6E9DE]
+      border-[var(--dashboard-border)]
       p-5
       transition-all
-      hover:border-[#8FE388]
+      hover:border-[var(--dashboard-green)]
       hover:shadow-md
       "
     >
       <div className="flex justify-between items-start">
         <div className="min-w-0">
-          <h3 className="font-semibold text-[#12160F] truncate">{title}</h3>
+          <h3 className="font-semibold text-[var(--dashboard-text)] truncate">
+            {title}
+          </h3>
 
-          <p className="mt-1 text-sm text-[#8FE388] font-medium">
+          <p className="mt-1 text-sm text-[var(--dashboard-green)] font-medium">
             shortly.app/{slug}
           </p>
 
-          <p className="mt-2 text-sm text-gray-500 truncate">{destination}</p>
+          <p className="mt-2 text-sm text-[var(--dashboard-muted)] truncate">
+            {destination}
+          </p>
         </div>
 
         <div className="flex gap-2 ml-5">
-          <Button size="icon" variant="ghost">
+          <Button
+            size="icon"
+            variant="ghost"
+            className="text-[var(--dashboard-muted)] hover:text-[var(--dashboard-text)]"
+          >
             <Copy size={16} />
           </Button>
 
-          <Button size="icon" variant="ghost">
+          <Button
+            size="icon"
+            variant="ghost"
+            className="text-[var(--dashboard-muted)] hover:text-[var(--dashboard-text)]"
+          >
             <ExternalLink size={16} />
           </Button>
 
           <Button
             size="icon"
             variant="ghost"
-            className="text-red-500 hover:text-red-600"
+            className="text-[var(--dashboard-danger)] hover:text-[var(--dashboard-danger-hover)]"
           >
             <Trash2 size={16} />
           </Button>
@@ -64,12 +76,17 @@ export default function LinkCard({
       </div>
 
       <div className="mt-5 flex items-center justify-between">
-        <Badge variant="secondary" className="rounded-full">
+        <Badge
+          variant="secondary"
+          className="rounded-full bg-[var(--dashboard-surface)] text-[var(--dashboard-muted)] border border-[var(--dashboard-border)]"
+        >
           <MousePointer2 size={14} className="mr-1" />
           {clicks} Clicks
         </Badge>
 
-        <span className="text-xs text-gray-500">{createdAt}</span>
+        <span className="text-xs text-[var(--dashboard-muted)]">
+          {createdAt}
+        </span>
       </div>
     </div>
   );

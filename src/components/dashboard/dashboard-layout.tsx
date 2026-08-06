@@ -6,15 +6,13 @@ import DashboardSidebar from "./dashboard-sidebar";
 import DashboardHeader from "./dashboard-header";
 import DashboardStats from "./dashboard-stats";
 import DashboardLinks from "./dashboard-links";
-
-// فعلاً کامنت می‌ماند
-// import CreateLinkDialog from "./create-link-dialog";
+import CreateLinkDialog from "./create-link-dialog";
 
 export default function DashboardLayout() {
   const [openCreateLink, setOpenCreateLink] = useState(false);
 
   return (
-    <div className="flex h-screen bg-[#F4F5EE] overflow-hidden">
+    <div className="flex h-screen bg-[var(--dashboard-bg)] overflow-hidden">
       <DashboardSidebar onCreateLink={() => setOpenCreateLink(true)} />
 
       <main className="flex flex-1 flex-col overflow-hidden">
@@ -27,12 +25,10 @@ export default function DashboardLayout() {
         </section>
       </main>
 
-      {/*
       <CreateLinkDialog
         open={openCreateLink}
         onOpenChange={setOpenCreateLink}
       />
-      */}
     </div>
   );
 }

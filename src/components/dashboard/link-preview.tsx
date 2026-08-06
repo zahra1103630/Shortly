@@ -12,8 +12,8 @@ export default function LinkPreview({ slug }: LinkPreviewProps) {
       className="
       rounded-2xl
       border
-      border-[#E6E9DE]
-      bg-[#F8F9F4]
+      border-[var(--dashboard-border)]
+      bg-[var(--dashboard-surface-soft)]
       p-6
       h-full
       flex
@@ -26,17 +26,21 @@ export default function LinkPreview({ slug }: LinkPreviewProps) {
           <Ghost size={40} mood="thinking" />
 
           <div>
-            <h3 className="font-semibold">Preview</h3>
+            <h3 className="font-semibold text-[var(--dashboard-text)]">
+              Preview
+            </h3>
 
-            <p className="text-sm text-gray-500">Your new short link</p>
+            <p className="text-sm text-[var(--dashboard-muted)]">
+              Your new short link
+            </p>
           </div>
         </div>
       </div>
 
       <div className="mt-10">
-        <p className="text-xs text-gray-500">Short URL</p>
+        <p className="text-xs text-[var(--dashboard-muted)]">Short URL</p>
 
-        <p className="mt-2 font-semibold text-[#8FE388] break-all">
+        <p className="mt-2 font-semibold text-[var(--dashboard-green)] break-all">
           shortly.app/{slug || "your-slug"}
         </p>
       </div>

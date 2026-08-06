@@ -34,9 +34,11 @@ export default function DashboardLinks() {
     <section>
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h2 className="text-2xl font-bold">My Links</h2>
+          <h2 className="text-2xl font-bold text-[var(--dashboard-text)]">
+            My Links
+          </h2>
 
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-[var(--dashboard-muted)] mt-1">
             Manage and track your shortened links.
           </p>
         </div>
