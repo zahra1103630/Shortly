@@ -4,6 +4,134 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+  Theme colors
+  ------------
+  These override the standard shadcn variables (--background, --card,
+  --primary, --muted, --accent, --border, etc). Every shadcn component
+  (Button, Card, Dialog, Input, Badge, Avatar...) reads these directly,
+  so overriding them here -- instead of only styling our own wrapper
+  divs -- is what actually keeps light/dark mode consistent everywhere.
+*/
+:root {
+  --background: #f4f5ee; /* page background, warm off-white */
+  --foreground: #12160f;
+
+  --card: #ffffff;
+  --card-foreground: #12160f;
+
+  --popover: #ffffff;
+  --popover-foreground: #12160f;
+
+  --primary: #8fe388; /* brand green */
+  --primary-foreground: #0b110f;
+
+  --secondary: #fafbf7; /* inputs, subtle fills */
+  --secondary-foreground: #12160f;
+
+  --muted: #fafbf7;
+  --muted-foreground: #6b7364;
+
+  --accent: #eaf5de; /* soft green accent, checklist/tags */
+  --accent-foreground: #496443;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #e6e9de;
+  --input: #e6e9de;
+  --ring: rgba(
+    143,
+    227,
+    136,
+    0.45
+  ); /* soft green focus ring, not a solid block */
+
+  /* dashboard-specific aliases used directly in component classNames */
+  --dashboard-bg: var(--background);
+  --dashboard-card: var(--card);
+  --dashboard-surface: var(--secondary);
+  --dashboard-surface-soft: #f8f9f4; /* dialog panels */
+  --dashboard-border: var(--border);
+
+  --dashboard-sidebar: #0b110f; /* sidebar stays dark in both themes */
+  --dashboard-sidebar-border: #1c231d;
+  --dashboard-sidebar-hover: #161c16;
+
+  --dashboard-text: var(--foreground);
+  --dashboard-muted: var(--muted-foreground);
+  --dashboard-muted-2: #7a8273;
+
+  --dashboard-green: var(--primary);
+  --dashboard-green-hover: #78cb74;
+  --dashboard-green-text: var(--primary-foreground);
+
+  --dashboard-accent-soft: var(--accent);
+  --dashboard-accent-soft-text: var(--accent-foreground);
+
+  --dashboard-danger: var(--destructive);
+  --dashboard-danger-hover: #dc2626;
+}
+
+.dark {
+  --background: #101312;
+  --foreground: #f5f5f5;
+
+  --card: #171b19;
+  --card-foreground: #f5f5f5;
+
+  --popover: #171b19;
+  --popover-foreground: #f5f5f5;
+
+  --primary: #8fe388;
+  --primary-foreground: #0b110f;
+
+  --secondary: #1c211f;
+  --secondary-foreground: #f5f5f5;
+
+  --muted: #1c211f;
+  --muted-foreground: #8e988d;
+
+  --accent: #1c2b1a;
+  --accent-foreground: #a3d99a;
+
+  --destructive: #f87171;
+  --destructive-foreground: #101312;
+
+  --border: #262c29;
+  --input: #262c29;
+  --ring: rgba(
+    143,
+    227,
+    136,
+    0.4
+  ); /* soft green focus ring, not a solid block */
+
+  --dashboard-bg: var(--background);
+  --dashboard-card: var(--card);
+  --dashboard-surface: var(--secondary);
+  --dashboard-surface-soft: #141917;
+  --dashboard-border: var(--border);
+
+  --dashboard-sidebar: #0b110f;
+  --dashboard-sidebar-border: #202620;
+  --dashboard-sidebar-hover: #1a201b;
+
+  --dashboard-text: var(--foreground);
+  --dashboard-muted: var(--muted-foreground);
+  --dashboard-muted-2: #8e988d;
+
+  --dashboard-green: var(--primary);
+  --dashboard-green-hover: #a3ec9c;
+  --dashboard-green-text: var(--primary-foreground);
+
+  --dashboard-accent-soft: var(--accent);
+  --dashboard-accent-soft-text: var(--accent-foreground);
+
+  --dashboard-danger: var(--destructive);
+  --dashboard-danger-hover: #fca5a5;
+}
+
 @theme inline {
   --font-heading: var(--font-plus-jakarta-sans);
   --font-body: var(--font-inter);
@@ -12,17 +140,6 @@
   --color-primary-light: #b6f77d;
   --color-primary-dark: #85c94c;
   --color-ghost-body: #d7f6a6;
-}
-
-@layer base {
-  * {
-    border-color: var(--border);
-  }
-  body {
-    background-color: #0b110f; /* Dark forest green background like the image */
-    color: #ffffff;
-    font-family: var(--font-body);
-  }
 }
 
 @layer utilities {
