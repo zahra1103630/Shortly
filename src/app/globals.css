@@ -13,8 +13,9 @@
   so overriding them here -- instead of only styling our own wrapper
   divs -- is what actually keeps light/dark mode consistent everywhere.
 */
+
 :root {
-  --background: #f4f5ee; /* page background, warm off-white */
+  --background: #fafaf8; /* page background, near-white, barely warm */
   --foreground: #12160f;
 
   --card: #ffffff;
@@ -23,13 +24,13 @@
   --popover: #ffffff;
   --popover-foreground: #12160f;
 
-  --primary: #8fe388; /* brand green */
-  --primary-foreground: #0b110f;
+  --primary: #9ed761; /* brand green, lime-leaning */
+  --primary-foreground: #0e1a10;
 
-  --secondary: #fafbf7; /* inputs, subtle fills */
+  --secondary: #f3f4ef; /* inputs, subtle fills */
   --secondary-foreground: #12160f;
 
-  --muted: #fafbf7;
+  --muted: #f3f4ef;
   --muted-foreground: #6b7364;
 
   --accent: #eaf5de; /* soft green accent, checklist/tags */
@@ -38,12 +39,12 @@
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: #e6e9de;
-  --input: #e6e9de;
+  --border: #edf0e9;
+  --input: #edf0e9;
   --ring: rgba(
-    143,
-    227,
-    136,
+    158,
+    215,
+    97,
     0.45
   ); /* soft green focus ring, not a solid block */
 
@@ -51,19 +52,19 @@
   --dashboard-bg: var(--background);
   --dashboard-card: var(--card);
   --dashboard-surface: var(--secondary);
-  --dashboard-surface-soft: #f8f9f4; /* dialog panels */
+  --dashboard-surface-soft: #f6f7f2; /* dialog panels */
   --dashboard-border: var(--border);
 
-  --dashboard-sidebar: #0b110f; /* sidebar stays dark in both themes */
-  --dashboard-sidebar-border: #1c231d;
-  --dashboard-sidebar-hover: #161c16;
+  --dashboard-sidebar: #111b14; /* sidebar stays dark in both themes */
+  --dashboard-sidebar-border: #1e2820;
+  --dashboard-sidebar-hover: #1a231b;
 
   --dashboard-text: var(--foreground);
   --dashboard-muted: var(--muted-foreground);
   --dashboard-muted-2: #7a8273;
 
   --dashboard-green: var(--primary);
-  --dashboard-green-hover: #78cb74;
+  --dashboard-green-hover: #8bcb4f;
   --dashboard-green-text: var(--primary-foreground);
 
   --dashboard-accent-soft: var(--accent);
@@ -76,6 +77,8 @@
 .dark {
   --background: #101312;
   --foreground: #f5f5f5;
+  --secondary: #20261f;
+  --input: #333b31;
 
   --card: #171b19;
   --card-foreground: #f5f5f5;
@@ -86,7 +89,6 @@
   --primary: #8fe388;
   --primary-foreground: #0b110f;
 
-  --secondary: #1c211f;
   --secondary-foreground: #f5f5f5;
 
   --muted: #1c211f;
@@ -98,8 +100,6 @@
   --destructive: #f87171;
   --destructive-foreground: #101312;
 
-  --border: #262c29;
-  --input: #262c29;
   --ring: rgba(
     143,
     227,
@@ -151,5 +151,11 @@
   }
   .font-mono {
     font-family: var(--font-mono);
+  }
+}
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
   }
 }
