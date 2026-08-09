@@ -16,11 +16,11 @@ Deployed URL:
 
 ### Authentication
 
-- Email and password sign up
-- Email and password login
-- Secure logout functionality
-- Protected dashboard routes
-- Authentication powered by Neon Auth
+* Email and password sign up
+* Email and password login
+* Secure logout functionality
+* Protected dashboard routes
+* Authentication powered by Neon Auth
 
 ---
 
@@ -28,13 +28,13 @@ Deployed URL:
 
 Authenticated users can:
 
-- Create shortened links
-- Add an optional title
-- Provide a custom slug
-- Automatically generate a random 6-character slug when no custom slug is provided
-- Copy generated short URLs
-- Delete links with confirmation dialogs
-- View all created links from the dashboard
+* Create shortened links
+* Add an optional title
+* Provide a custom slug
+* Automatically generate a random 6-character slug when no custom slug is provided
+* Copy generated short URLs
+* Delete links with confirmation dialogs
+* View all created links from the dashboard
 
 Each slug is globally unique to prevent collisions.
 
@@ -46,14 +46,15 @@ All link creation inputs are validated on the server.
 
 Validation includes:
 
-- Required destination URL
-- Valid `http` / `https` URL format
-- Optional title validation
-- Optional custom slug validation
-- Slug format restrictions:
-  - Alphanumeric characters
-  - Dashes allowed
-  - No invalid symbols
+* Required destination URL
+* Valid `http` / `https` URL format
+* Optional title validation
+* Optional custom slug validation
+* Slug format restrictions:
+
+  * Alphanumeric characters
+  * Dashes allowed
+  * No invalid symbols
 
 Validation is handled using Zod schemas.
 
@@ -63,22 +64,22 @@ Validation is handled using Zod schemas.
 
 The dashboard provides:
 
-- Total links count
-- Total clicks count
-- Recent activity overview
-- User's shortened links list
-- Link management actions
+* Total links count
+* Total clicks count
+* Recent activity overview
+* User's shortened links list
+* Link management actions
 
 Each link card displays:
 
-- Short URL
-- Original destination URL
-- Title
-- Click count
-- Creation date
-- Copy action
-- External link action
-- Delete action
+* Short URL
+* Original destination URL
+* Title
+* Click count
+* Creation date
+* Copy action
+* External link action
+* Delete action
 
 The dashboard includes responsive layouts for desktop and mobile devices.
 
@@ -112,10 +113,10 @@ Each link has a dedicated details page:
 
 The details page includes:
 
-- Full destination URL
-- Total click count
-- Creation date
-- Click history visualization
+* Full destination URL
+* Total click count
+* Creation date
+* Click history visualization
 
 A 7-day clicks chart is implemented using a chart library.
 
@@ -125,33 +126,33 @@ A 7-day clicks chart is implemented using a chart library.
 
 ### Frontend
 
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS v4
-- shadcn/ui
-- Lucide Icons
-- Sonner Toast Notifications
-- next-themes for dark mode support
+* Next.js 16
+* React 19
+* TypeScript
+* Tailwind CSS v4
+* shadcn/ui
+* Lucide Icons
+* Sonner Toast Notifications
+* next-themes for dark mode support
 
 ---
 
 ### Backend
 
-- Next.js App Router
-- Server Components
-- Server Actions
-- Neon Auth
-- Neon PostgreSQL
-- Drizzle ORM
+* Next.js App Router
+* Server Components
+* Server Actions
+* Neon Auth
+* Neon PostgreSQL
+* Drizzle ORM
 
 ---
 
 ### Validation
 
-- Zod
-- Server-side input validation
-- Type-safe validation schemas
+* Zod
+* Server-side input validation
+* Type-safe validation schemas
 
 ---
 
@@ -192,8 +193,8 @@ src
 
 Database management is handled with:
 
-- Neon PostgreSQL
-- Drizzle ORM
+* Neon PostgreSQL
+* Drizzle ORM
 
 Main entities:
 
@@ -201,12 +202,12 @@ Main entities:
 
 Stores:
 
-- URL slug
-- Destination URL
-- Optional title
-- Click count
-- Creation date
-- Owner user ID
+* URL slug
+* Destination URL
+* Optional title
+* Click count
+* Creation date
+* Owner user ID
 
 ### Click Tracking
 
@@ -218,9 +219,9 @@ Stores click information used for analytics and charts.
 
 ### Requirements
 
-- Node.js
-- pnpm
-- Neon PostgreSQL database
+* Node.js
+* pnpm
+* Neon PostgreSQL database
 
 ---
 
@@ -334,14 +335,14 @@ I used AI coding assistants throughout the development process to speed up imple
 
 AI was mainly used for:
 
-- Exploring Next.js App Router patterns
-- Designing project structure
-- Implementing authentication flows
-- Debugging Neon Auth and session handling
-- Creating reusable dashboard components
-- Reviewing TypeScript errors
-- Improving UI consistency
-- Generating initial component structures
+* Exploring Next.js App Router patterns
+* Designing project structure
+* Implementing authentication flows
+* Debugging Neon Auth and session handling
+* Creating reusable dashboard components
+* Reviewing TypeScript errors
+* Improving UI consistency
+* Generating initial component structures
 
 The final architecture, decisions, and integration choices were reviewed and adjusted manually.
 
@@ -377,10 +378,10 @@ Database queries are separated from React components to keep UI components clean
 
 The application was designed mobile-first with:
 
-- Responsive dashboard layout
-- Mobile navigation drawer
-- Adaptive link cards
-- Dark mode support
+* Responsive dashboard layout
+* Mobile navigation drawer
+* Adaptive link cards
+* Dark mode support
 
 ---
 
@@ -398,22 +399,22 @@ Production URL:
 
 Implemented:
 
-- ✅ Authentication
-- ✅ Protected dashboard
-- ✅ Create short links
-- ✅ Custom slugs
-- ✅ Automatic slug generation
-- ✅ URL validation
-- ✅ Dashboard management
-- ✅ Copy short URL
-- ✅ Delete confirmation
-- ✅ Redirect endpoint
-- ✅ Click tracking
-- ✅ Link details page
-- ✅ Responsive UI
-- ✅ Dark mode
-- ✅ Toast notifications
-- ✅ Loading and error boundaries
+* ✅ Authentication
+* ✅ Protected dashboard
+* ✅ Create short links
+* ✅ Custom slugs
+* ✅ Automatic slug generation
+* ✅ URL validation
+* ✅ Dashboard management
+* ✅ Copy short URL
+* ✅ Delete confirmation
+* ✅ Redirect endpoint
+* ✅ Click tracking
+* ✅ Link details page
+* ✅ Responsive UI
+* ✅ Dark mode
+* ✅ Toast notifications
+* ✅ Loading and error boundaries
 
 ---
 
