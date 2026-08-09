@@ -11,34 +11,36 @@ export default function LinkPreviewCard({ slug }: LinkPreviewCardProps) {
   return (
     <div
       className="
+      flex
       h-full
+      flex-col
+      items-center
+      justify-center
       rounded-3xl
       border
       border-[var(--dashboard-border)]
       bg-[var(--dashboard-surface)]
-      p-6
-      flex
-      flex-col
-      items-center
-      justify-center
+      p-4
       text-center
+      sm:p-6
       "
     >
       <div
         className="
+        flex
         w-full
         max-w-[220px]
         aspect-[3/5]
-        rounded-3xl
-        bg-[var(--dashboard-card)]
-        border
-        border-[var(--dashboard-border)]
-        shadow-sm
-        flex
         flex-col
         items-center
         justify-center
-        p-6
+        rounded-3xl
+        border
+        border-[var(--dashboard-border)]
+        bg-[var(--dashboard-card)]
+        p-5
+        shadow-sm
+        sm:p-6
         "
       >
         <Ghost size={70} mood="happy" />
@@ -47,7 +49,7 @@ export default function LinkPreviewCard({ slug }: LinkPreviewCardProps) {
           Preview
         </h3>
 
-        <p className="mt-3 text-sm font-bold text-[var(--dashboard-green)]">
+        <p className="mt-3 break-all text-sm font-bold text-[var(--dashboard-green)]">
           shortly.app/
           {slug || "my-link"}
         </p>
@@ -69,7 +71,7 @@ export default function LinkPreviewCard({ slug }: LinkPreviewCardProps) {
               key={item}
               className="flex items-center gap-2 text-[11px] text-[var(--dashboard-accent-soft-text)]"
             >
-              <Check size={13} className="text-[var(--dashboard-green)]" />
+              <Check size={13} className="shrink-0 text-[var(--dashboard-green)]" />
               {item}
             </div>
           ))}

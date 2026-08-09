@@ -1,92 +1,138 @@
 "use client";
 
-import { Copy, ExternalLink, MousePointer2, Trash2 } from "lucide-react";
+import { MousePointer2 } from "lucide-react";
+import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import LinkActions from "@/components/dashboard/link-card-actions";
 
 interface LinkCardProps {
+  id: number;
   title: string;
   slug: string;
+  shortUrl: string;
   destination: string;
   clicks: number;
   createdAt: string;
 }
 
 export default function LinkCard({
+  id,
   title,
-  slug,
+  shortUrl,
   destination,
   clicks,
-  createdAt,
 }: LinkCardProps) {
   return (
     <div
       className="
-      bg-[var(--dashboard-card)]
-      rounded-2xl
-      border
-      border-[var(--dashboard-border)]
-      p-5
-      transition-all
-      hover:border-[var(--dashboard-green)]
-      hover:shadow-md
-      "
+rounded-2xl
+border
+border-[var(--dashboard-border)]
+bg-[var(--dashboard-surface)]
+p-4
+sm:p-5
+overflow-hidden
+"
     >
-      <div className="flex justify-between items-start">
-        <div className="min-w-0">
-          <h3 className="font-semibold text-[var(--dashboard-text)] truncate">
+      <div
+        className="
+flex
+items-start
+justify-between
+gap-3
+"
+      >
+        <div
+          className="
+min-w-0
+flex-1
+"
+        >
+          <h3
+            className="
+truncate
+text-sm
+font-semibold
+text-[var(--dashboard-text)]
+sm:text-base
+"
+          >
             {title}
           </h3>
 
-          <p className="mt-1 text-sm text-[var(--dashboard-green)] font-medium">
-            shortly.app/{slug}
+          <p
+            className="
+mt-1
+truncate
+text-xs
+text-[var(--dashboard-green)]
+sm:text-sm
+"
+          >
+            {shortUrl}
           </p>
 
-          <p className="mt-2 text-sm text-[var(--dashboard-muted)] truncate">
+          <p
+            className="
+mt-2
+line-clamp-2
+break-all
+text-xs
+text-[var(--dashboard-muted)]
+sm:text-sm
+"
+          >
             {destination}
           </p>
         </div>
 
-        <div className="flex gap-2 ml-5">
-          <Button
-            size="icon"
-            variant="ghost"
-            className="text-[var(--dashboard-muted)] hover:text-[var(--dashboard-text)]"
-          >
-            <Copy size={16} />
-          </Button>
-
-          <Button
-            size="icon"
-            variant="ghost"
-            className="text-[var(--dashboard-muted)] hover:text-[var(--dashboard-text)]"
-          >
-            <ExternalLink size={16} />
-          </Button>
-
-          <Button
-            size="icon"
-            variant="ghost"
-            className="text-[var(--dashboard-danger)] hover:text-[var(--dashboard-danger-hover)]"
-          >
-            <Trash2 size={16} />
-          </Button>
+        <div
+          className="
+flex
+shrink-0
+gap-1
+"
+        >
+          <LinkActions id={id} url={shortUrl} />
         </div>
       </div>
 
-      <div className="mt-5 flex items-center justify-between">
+      <div
+        className="
+mt-4
+flex
+items-center
+justify-between
+gap-2
+"
+      >
         <Badge
-          variant="secondary"
-          className="rounded-full bg-[var(--dashboard-surface)] text-[var(--dashboard-muted)] border border-[var(--dashboard-border)]"
+          className="
+rounded-full
+bg-[var(--dashboard-accent-soft)]
+text-[var(--dashboard-accent-soft-text)]
+"
         >
-          <MousePointer2 size={14} className="mr-1" />
-          {clicks} Clicks
+          <MousePointer2 size={13} className="mr-1" />
+
+          {clicks}
+
+          <span className="ml-1 hidden sm:inline">clicks</span>
         </Badge>
 
-        <span className="text-xs text-[var(--dashboard-muted)]">
-          {createdAt}
-        </span>
+        <Link
+          href={`/dashboard/links/${id}`}
+          className="
+text-xs
+font-medium
+text-[var(--dashboard-green)]
+hover:underline
+sm:text-sm
+"
+        >
+          View details
+        </Link>
       </div>
     </div>
   );

@@ -1,53 +1,52 @@
-"use client";
+import { db } from "@/lib/db";
+import { links } from "@/lib/db/schema";
+import { desc, eq } from "drizzle-orm";
 
 import LinkCard from "./link-card";
+import { buildShortURL } from "@/lib/utils/build-short-url";
 
-const mockLinks = [
-  {
-    id: 1,
-    title: "Portfolio",
-    slug: "portfolio",
-    destination: "https://zahra.dev",
-    clicks: 234,
-    createdAt: "Today",
-  },
-  {
-    id: 2,
-    title: "GitHub",
-    slug: "github",
-    destination: "https://github.com/",
-    clicks: 82,
-    createdAt: "Yesterday",
-  },
-  {
-    id: 3,
-    title: "Resume",
-    slug: "resume",
-    destination: "https://drive.google.com/",
-    clicks: 16,
-    createdAt: "2 days ago",
-  },
-];
+interface DashboardLinksProps {
+  userId: string;
+}
 
-export default function DashboardLinks() {
+export default async function DashboardLinks({ userId }: DashboardLinksProps) {
+  const userLinks = await db
+    .select()
+    .from(links)
+    .where(eq(links.userId, userId))
+    .orderBy(desc(links.createdAt));
+
   return (
-    <section>
-      <div className="flex justify-between items-center mb-6">
-        <div>
-          <h2 className="text-2xl font-bold text-[var(--dashboard-text)]">
-            My Links
-          </h2>
+    <section className="w-full max-w-full">
+      <div className="mb-6">
+        <h2 className="text-xl font-bold text-[var(--dashboard-text)] sm:text-2xl">
+          My Links
+        </h2>
 
-          <p className="text-sm text-[var(--dashboard-muted)] mt-1">
-            Manage and track your shortened links.
-          </p>
-        </div>
+        <p className="mt-1 text-sm text-[var(--dashboard-muted)]">
+          Manage and track your shortened links.
+        </p>
       </div>
 
-      <div className="grid gap-5">
-        {mockLinks.map((link) => (
-          <LinkCard key={link.id} {...link} />
-        ))}
+      <div className="grid gap-4 sm:gap-5">
+        {userLinks.length === 0 ? (
+          <div className="rounded-xl border border-[var(--dashboard-border)] p-6 text-center text-[var(--dashboard-muted)]">
+            No links created yet.
+          </div>
+        ) : (
+          userLinks.map((link) => (
+            <LinkCard
+              key={link.id}
+              id={link.id}
+              title={link.title ?? "Untitled"}
+              slug={link.slug}
+              shortUrl={buildShortURL(link.slug)}
+              destination={link.destination}
+              clicks={link.clickCount}
+              createdAt={link.createdAt.toLocaleDateString()}
+            />
+          ))
+        )}
       </div>
     </section>
   );

@@ -1,34 +1,31 @@
-"use client";
+// src/components/dashboard/dashboard-layout.tsx
+import DashboardClient from "./dashboard-client";
 
-import { useState } from "react";
+interface DashboardStatsData {
+  totalLinks: number;
+  totalClicks: number;
+  thisWeek: number;
+  topLink: {
+    title: string | null;
+    slug: string;
+    clickCount: number;
+  } | null;
+}
 
-import DashboardSidebar from "./dashboard-sidebar";
-import DashboardHeader from "./dashboard-header";
-import DashboardStats from "./dashboard-stats";
-import DashboardLinks from "./dashboard-links";
-import CreateLinkDialog from "./create-link-dialog";
+interface DashboardLayoutProps {
+  session: any;
+  stats: DashboardStatsData;
+  children: React.ReactNode;
+}
 
-export default function DashboardLayout() {
-  const [openCreateLink, setOpenCreateLink] = useState(false);
-
+export default function DashboardLayout({
+  session,
+  stats,
+  children,
+}: DashboardLayoutProps) {
   return (
-    <div className="flex h-screen bg-[var(--dashboard-bg)] overflow-hidden">
-      <DashboardSidebar onCreateLink={() => setOpenCreateLink(true)} />
-
-      <main className="flex flex-1 flex-col overflow-hidden">
-        <DashboardHeader />
-
-        <section className="flex-1 overflow-y-auto p-8 space-y-8">
-          <DashboardStats />
-
-          <DashboardLinks />
-        </section>
-      </main>
-
-      <CreateLinkDialog
-        open={openCreateLink}
-        onOpenChange={setOpenCreateLink}
-      />
-    </div>
+    <DashboardClient session={session} stats={stats}>
+      {children}
+    </DashboardClient>
   );
 }

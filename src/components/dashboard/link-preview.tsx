@@ -10,15 +10,16 @@ export default function LinkPreview({ slug }: LinkPreviewProps) {
   return (
     <div
       className="
+      flex
+      h-full
+      flex-col
+      justify-between
       rounded-2xl
       border
       border-[var(--dashboard-border)]
       bg-[var(--dashboard-surface-soft)]
-      p-6
-      h-full
-      flex
-      flex-col
-      justify-between
+      p-4
+      sm:p-6
       "
     >
       <div>
@@ -40,7 +41,7 @@ export default function LinkPreview({ slug }: LinkPreviewProps) {
       <div className="mt-10">
         <p className="text-xs text-[var(--dashboard-muted)]">Short URL</p>
 
-        <p className="mt-2 font-semibold text-[var(--dashboard-green)] break-all">
+        <p className="mt-2 break-all font-semibold text-[var(--dashboard-green)]">
           shortly.app/{slug || "your-slug"}
         </p>
       </div>

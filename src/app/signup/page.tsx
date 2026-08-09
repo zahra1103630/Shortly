@@ -1,10 +1,10 @@
+import AuthShell from "@/components/auth/auth-shell";
 import SignupForm from "@/components/auth/signup-form";
 
 export default function SignupPage() {
   return (
-    <main>
-      <h1>Signup</h1>
+    <AuthShell>
       <SignupForm />
-    </main>
+    </AuthShell>
   );
 }
