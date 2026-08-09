@@ -1,24 +1,52 @@
 "use client";
 
-import { authClient } from "@/lib/auth/client";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { LogOut } from "lucide-react";
+import { toast } from "sonner";
+
+import { Button } from "@/components/ui/button";
+import { authClient } from "@/lib/auth/client";
 
 export default function LogoutButton() {
   const router = useRouter();
 
-  async function handleLogout() {
-    await authClient.signOut();
+  const [loading, setLoading] = useState(false);
 
-    router.push("/login");
-    router.refresh();
+  async function handleLogout() {
+    try {
+      setLoading(true);
+
+      await authClient.signOut();
+
+      router.push("/login");
+      router.refresh();
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to log out, please try again");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
-    <button
+    <Button
+      size="icon"
+      variant="ghost"
       onClick={handleLogout}
-      className="rounded bg-red-500 px-4 py-2 text-white"
+      disabled={loading}
+      title="Log out"
+      aria-label="Log out"
+      className="
+        w-10 h-10
+        rounded-full
+        text-[var(--dashboard-muted)]
+        hover:text-red-500
+        hover:bg-red-500/10
+        cursor-pointer
+      "
     >
-      Logout
-    </button>
+      <LogOut size={17} className={loading ? "animate-pulse" : ""} />
+    </Button>
   );
 }
