@@ -36,6 +36,7 @@ export default function RootLayout({
     <html
       lang="en"
       dir="ltr"
+      suppressHydrationWarning
       className={`${plusJakartaSans.variable} ${inter.variable} ${jetBrainsMono.variable}`}
     >
       <body className="antialiased overflow-x-hidden">

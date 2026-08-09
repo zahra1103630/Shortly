@@ -4,43 +4,27 @@ import FeatureList from "@/components/landing/feature-list";
 
 export default function Home() {
   return (
-    <div
+    <main
       className="
-min-h-screen
-w-full
-bg-[#0b110f]
-relative
-overflow-hidden
-flex
-flex-col
-"
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-[#08110d]
+        text-white
+      "
     >
       <div
         className="
-absolute
-top-[-20%]
-left-[-10%]
-w-[60%]
-h-[60%]
-bg-[#4c7a38]
-rounded-full
-blur-[120px]
-opacity-20
-"
-      />
-
-      <div
-        className="
-absolute
-bottom-[-20%]
-right-[-10%]
-w-[50%]
-h-[50%]
-bg-[#2d4a22]
-rounded-full
-blur-[100px]
-opacity-20
-"
+          absolute
+          bottom-[-20%]
+          right-[-10%]
+          h-[50%]
+          w-[50%]
+          rounded-full
+          bg-[#2d4a22]
+          opacity-20
+          blur-[100px]
+        "
       />
 
       <LandingNavbar />
@@ -48,6 +32,6 @@ opacity-20
       <HeroSection />
 
       <FeatureList />
-    </div>
+    </main>
   );
 }

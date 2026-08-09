@@ -1,46 +1,49 @@
 import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 
 export default function LandingNavbar() {
   return (
     <nav
       className="
-      relative
-      z-20
-      w-full
-      max-w-6xl
-      mx-auto
-      px-6
-      py-6
-      flex
-      items-center
-      justify-between
+        flex
+        items-center
+        justify-between
+        px-6
+        py-6
+        lg:px-10
       "
     >
-      <Link href="/" className="flex items-center gap-2">
-        <div
-          className="
-          w-9
-          h-9
-          rounded-full
-          bg-[#b6f77d]
+      <Link
+        href="/"
+        className="
           flex
           items-center
-          justify-center
+          gap-3
+        "
+      >
+        <div
+          className="
+            flex
+            h-9
+            w-9
+            items-center
+            justify-center
+            rounded-full
+            bg-[#b6f77d]
           "
         >
           <span
             className="
-            text-[#0b110f]
-            font-bold
-            text-lg
+              font-bold
+              text-[#0b110f]
             "
           >
             S
           </span>
         </div>
 
-        <span className="text-xl font-bold">Shortly</span>
+        <span className="text-xl font-bold text-white">Shortly</span>
       </Link>
 
       <div className="flex items-center gap-3">
@@ -48,9 +51,9 @@ export default function LandingNavbar() {
           <Button
             variant="ghost"
             className="
-            text-gray-400
-            hover:text-white
-            hover:bg-transparent
+              text-gray-400
+              hover:bg-transparent
+              hover:text-white cursor-pointer
             "
           >
             Login
@@ -60,11 +63,11 @@ export default function LandingNavbar() {
         <Link href="/signup">
           <Button
             className="
-            rounded-full
-            bg-[#b6f77d]
-            text-[#0b110f]
-            hover:bg-[#a3df6b]
-            px-5
+              rounded-full
+              bg-[#b6f77d]
+              px-5
+              text-[#0b110f]
+              hover:bg-[#a3df6b] cursor-pointer
             "
           >
             Sign up

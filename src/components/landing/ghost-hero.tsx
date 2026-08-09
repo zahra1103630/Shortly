@@ -4,16 +4,18 @@ export default function GhostHero() {
   return (
     <div
       className="
+        pointer-events-none
         absolute
-        left-[10px]
-        top-28
+        right-[70px]
+        top-20
+        z-0
         hidden
+        opacity-90
         lg:block
         rotate-[-18deg]
-        pointer-events-none
       "
     >
-      <Ghost size={280} mood="happy" />
+      <Ghost size={400} mood="happy" />
     </div>
   );
 }
