@@ -128,8 +128,8 @@ export default function NotFound() {
             text-[var(--dashboard-muted)]
           "
         >
-          This link might have been deleted, expired, or typed incorrectly.
-          Let's get you back on track.
+          This link might have been deleted, expired, or typed incorrectly. Lets
+          get you back on track.
         </p>
 
         <div

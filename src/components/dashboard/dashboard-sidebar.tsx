@@ -6,10 +6,15 @@ import { Link2, BarChart3, Globe, Settings, Plus, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-
+interface SessionUser {
+  user?: {
+    name?: string | null;
+    email?: string | null;
+  };
+}
 interface DashboardSidebarProps {
   onCreateLink: () => void;
-  session: any;
+  session: SessionUser;
   open?: boolean;
   onClose?: () => void;
 }

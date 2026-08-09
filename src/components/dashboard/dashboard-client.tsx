@@ -19,8 +19,16 @@ interface DashboardStatsData {
   } | null;
 }
 
+interface SessionUser {
+  user?: {
+    id: string;
+    name?: string | null;
+    email?: string | null;
+  };
+}
+
 interface Props {
-  session: any;
+  session: SessionUser;
   stats: DashboardStatsData;
   children: React.ReactNode;
 }

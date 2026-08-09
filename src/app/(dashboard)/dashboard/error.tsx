@@ -55,7 +55,7 @@ export default function DashboardError({
           text-[var(--dashboard-muted)]
         "
       >
-        We couldn't load your dashboard right now.
+        We can&apos;t load your dashboard right now.
       </p>
 
       <Button

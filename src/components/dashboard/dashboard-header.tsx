@@ -5,12 +5,18 @@ import ThemeToggle from "@/components/theme/theme-toggle";
 import { Menu, Search } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import LogoutButton from "@/components/auth/logout-button";
 
+interface SessionUser {
+  user?: {
+    name?: string | null;
+    email?: string | null;
+  };
+}
+
 interface DashboardHeaderProps {
-  session: any;
+  session: SessionUser;
   onMenuClick?: () => void;
 }
 export default function DashboardHeader({

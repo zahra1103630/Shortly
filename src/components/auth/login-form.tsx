@@ -267,7 +267,7 @@ export default function LoginForm() {
           text-[#718276]
         "
       >
-        Don't have an account?{" "}
+        Don&apos;t have an account?{" "}
         <Link
           href="/signup"
           className="

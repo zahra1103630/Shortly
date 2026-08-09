@@ -11,9 +11,16 @@ interface DashboardStatsData {
     clickCount: number;
   } | null;
 }
+interface SessionUser {
+  user?: {
+    id: string;
+    name?: string | null;
+    email?: string | null;
+  };
+}
 
 interface DashboardLayoutProps {
-  session: any;
+  session: SessionUser;
   stats: DashboardStatsData;
   children: React.ReactNode;
 }
